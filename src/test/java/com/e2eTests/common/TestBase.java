@@ -7,6 +7,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import com.e2eTests.pageObjects.LoginPage;
+import com.e2eTests.utils.ConfigFileReader;
+
 
 public class TestBase {
 
@@ -51,6 +54,14 @@ public class TestBase {
 			throw new IllegalArgumentException("Browser \"" + browser + "\" is not supported");
 		}
 	}
+	// Default login logic for most test cases
+	   @BeforeMethod(dependsOnMethods = "setup")
+	   public void login() {
+		   LoginPage loginpage = new LoginPage();
+		   ConfigFileReader configFileReader = new ConfigFileReader();
+		    loginpage.performLogin(configFileReader.getProperties("validAdminEmail"), 
+		    		configFileReader.getProperties("validAdminPassword"));
+		}
 
 	// This method will be executed after each test method to clean up
 	@AfterMethod
