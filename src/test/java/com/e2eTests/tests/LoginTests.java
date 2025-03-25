@@ -2,15 +2,16 @@ package com.e2eTests.tests;
 
 // Import the static assertEquals method from TestNG for assertions in tests
 import static org.testng.Assert.assertEquals;
-
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.e2eTests.common.AlertsWaitsHandler;
 import com.e2eTests.common.TestBase;
 import com.e2eTests.pageObjects.LoginPage;
 import com.e2eTests.utils.ConfigFileReader;
 
+@Listeners(ChainTestListener.class)
 // This class contains tests for login functionality and extends the common test base
 public class LoginTests extends TestBase {
 

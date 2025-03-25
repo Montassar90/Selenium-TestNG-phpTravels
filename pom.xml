@@ -21,6 +21,7 @@
 		<log4j-api.version>2.24.1</log4j-api.version>
 		<log4j-core.version>2.24.1</log4j-core.version>
 		<commons-io.version>2.18.0</commons-io.version>
+		<chaintest-testng.version>1.0.10</chaintest-testng.version>
 
 
 	</properties>
@@ -57,6 +58,11 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+		<groupId>com.aventstack</groupId>
+		<artifactId>chaintest-testng</artifactId>
+		<version>${chaintest-testng.version}</version>
 		</dependency>
 	</dependencies>
 

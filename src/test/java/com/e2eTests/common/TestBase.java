@@ -12,7 +12,8 @@ import com.e2eTests.utils.ConfigFileReader;
 
 
 public class TestBase {
-
+	// A ConfigFileReader instance to read the configuration properties
+	   ConfigFileReader configFileReader = new ConfigFileReader();
 	// A static WebDriver instance to be shared among tests
 	private static WebDriver driver;
 
@@ -31,7 +32,7 @@ public class TestBase {
 		case "chrome":
 			// Initialize ChromeDriver and open the admin URL
 			driver = new ChromeDriver();
-			driver.get("https://phptravels.net/admin");
+			driver.get(configFileReader.getProperties("baseUrl"));
 			driver.manage().window().maximize(); // Maximize the browser window
 			break;
 
@@ -58,7 +59,6 @@ public class TestBase {
 	   @BeforeMethod(dependsOnMethods = "setup")
 	   public void login() {
 		   LoginPage loginpage = new LoginPage();
-		   ConfigFileReader configFileReader = new ConfigFileReader();
 		    loginpage.performLogin(configFileReader.getProperties("validAdminEmail"), 
 		    		configFileReader.getProperties("validAdminPassword"));
 		}
