@@ -36,25 +36,17 @@ public class DashboardPage {
     @FindBy(how = How.XPATH, using = "//a[contains(@href, 'transactions') and span[@class='bg-warning']]")
     private WebElement pendingTransactionsCard;
 
-    // WebElement for confirming the Users page loaded, identified using a CSS selector.
+    // WebElement for confirming the actual page Title, identified using a CSS selector.
     @FindBy(how = How.CSS, using = ".m-0.page_title")
-    private WebElement usersConfirm;
-    
-    // WebElement for confirming the Pages page loaded, identified using a CSS selector.
-    @FindBy(how = How.CSS, using = ".m-0.page_title")
-    private WebElement pagesConfirm;
-    
-    // WebElement for confirming the Bookings page loaded, identified using a CSS selector.
-    @FindBy(how = How.CSS, using = ".m-0.page_title")
-    private WebElement bookingsConfirm;
-    
-    // WebElement for confirming the Pending Transactions page loaded, identified using a CSS selector.
-    @FindBy(how = How.CSS, using = ".m-0.page_title")
-    private WebElement pendingTransactionsConfirm;
-    
+    private WebElement pageTitle;
+  
     // WebElement representing the dropdown for booking status, identified by its CSS selector.
     @FindBy(how = How.CSS, using = ".form-select.booking_status")
     private WebElement bookingStatusDropdown;
+    
+    @FindBy(how = How.CSS, using = ".form-select.payment_status")
+    private WebElement paymentStatusDropdown;
+
 
     // Constructor initializes web elements using the PageFactory and the WebDriver from TestBase.
     public DashboardPage() {
@@ -96,4 +88,11 @@ public class DashboardPage {
         Select select = new Select(bookingStatusDropdown);
         return select.getFirstSelectedOption().getText();
     }
+    
+    // Retrieves the text of the currently selected option from the payment status dropdown.
+    public String getPaymentStatus() {
+        Select select = new Select(paymentStatusDropdown);
+        return select.getFirstSelectedOption().getText();
+    }
+
 }
