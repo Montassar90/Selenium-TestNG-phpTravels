@@ -22,6 +22,7 @@
 		<log4j-core.version>2.24.1</log4j-core.version>
 		<commons-io.version>2.18.0</commons-io.version>
 		<chaintest-testng.version>1.0.10</chaintest-testng.version>
+		<monte-screen-recorder.version>0.7.7.0</monte-screen-recorder.version>
 
 
 	</properties>
@@ -60,9 +61,14 @@
 			<version>${commons-io.version}</version>
 		</dependency>
 		<dependency>
-		<groupId>com.aventstack</groupId>
-		<artifactId>chaintest-testng</artifactId>
-		<version>${chaintest-testng.version}</version>
+			<groupId>com.aventstack</groupId>
+			<artifactId>chaintest-testng</artifactId>
+			<version>${chaintest-testng.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.stephenc.monte</groupId>
+			<artifactId>monte-screen-recorder</artifactId>
+			<version>${monte-screen-recorder.version}</version>
 		</dependency>
 	</dependencies>
 

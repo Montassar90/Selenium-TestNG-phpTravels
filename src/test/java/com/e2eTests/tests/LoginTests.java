@@ -88,6 +88,7 @@ public class LoginTests extends TestBase {
 				configFileReader.getProperties("validAdminPassword"));
 		// Verify that the confirmation message for the language change matches the
 		// expected message from configuration
+		alertsWaitsHandler.explicitVisibleWait(loginPage.getLangChangeConfirmMsg());
 		assertEquals(loginPage.getLangChangeConfirmMsg().getText(),
 				configFileReader.getProperties("langChangeExpectedMsg"));
 	}
