@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.e2eTests.common.TestBase;
 
 public class ScreenshotsHandler extends TestBase{
@@ -18,11 +19,12 @@ public class ScreenshotsHandler extends TestBase{
 		File screenshotFile = ((TakesScreenshot) TestBase.getDriver()).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshotFile, new File( ".//screenshot//"+ testName + screenshotFileName + ".png"));
 		
+	}
+	
+	public void embedScreenshot() {
 		
-		
-		
-		
-		
+		final byte[] reportScreenshot = ((TakesScreenshot) TestBase.getDriver()).getScreenshotAs(OutputType.BYTES);
+		ChainTestListener.embed(reportScreenshot, "image/png");
 	}
 
 }

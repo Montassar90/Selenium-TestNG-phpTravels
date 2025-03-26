@@ -21,4 +21,5 @@ webdriver.log
 /test-output/
 *.json
 screenshot
+test-recordings
 
